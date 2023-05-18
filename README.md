@@ -31,6 +31,40 @@ or you can use APIs [ElevenLabs API Guide](https://api.elevenlabs.io/docs)
 
 [ElevenLabs Python Repo](https://github.com/lugia19/elevenlabslib)
 
+
+<table class="center">
+<tr>
+  <td style="text-align:center;"><b>Eleven Labs Example</b></td>
+  <td style="text-align:center;"><b>Eleven Labs Example</b></td>
+   <td style="text-align:center;"><b>Eleven Labs Example</b></td>
+</tr>
+  
+<tr>
+<td>
+
+https://github.com/saba99/Talking_Face_Avatar/assets/33378412/8c2bd56b-5b43-4507-9d7e-68dc74c5a56a
+
+</td>
+<td>
+
+https://github.com/saba99/Talking_Face_Avatar/assets/33378412/f622369b-9e69-492d-975b-685671c663c1
+
+</td>
+<td>
+
+https://github.com/saba99/Talking_Face_Avatar/assets/33378412/1f78eb67-cc76-4c9a-8664-a28f3f795bee
+
+</td> 
+
+ 
+</tr>
+
+
+</table>
+
+
+
+
 ## 🔥 Highlight
 
 
