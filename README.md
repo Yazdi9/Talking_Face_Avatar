@@ -17,11 +17,16 @@
 
 - 🔥 `full image mode` is online! checkout [here](https://github.com/Winfredy/SadTalker#full-bodyimage-generation) for more details.
 
-| still+enhancer in v0.0.1                 | still + enhancer   in v0.0.2       |   [input image @bagbag1815](https://twitter.com/bagbag1815/status/1642754319094108161) |
+
+| video 1 +enhancer                | video 2      |  video 3 |
 |:--------------------: |:--------------------: | :----: |
+| <video  src="" type="video/mp4"> </video> | <video  src="" type="video/mp4"> </video>  | <video  src="" type="video/mp4"> </video>
 
 
-| <video  src="" type="video/mp4"> </video> | <video  src="https://user-images.githubusercontent.com/4397546/230717873-355b7bf3-d3de-49f9-a439-9220e623fce7.mp4" type="video/mp4"> </video>  | <img src='./examples/source_image/full_body_2.png' width='380'> 
+| video 1 +enhancer                | video 2      |  video 3 |
+|:--------------------: |:--------------------: | :----: |
+| <video  src="" type="video/mp4"> </video> | <video  src="" type="video/mp4"> </video>  | <video  src="" type="video/mp4"> </video>
+
 
 - 🔥 Several new mode, eg, `still mode`, `reference mode`, `resize mode` are online for better and custom applications.
 
