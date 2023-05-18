@@ -40,9 +40,7 @@ or you can use APIs [ElevenLabs API Guide](https://api.elevenlabs.io/docs)
 
 | video 4                | video 5     |  video 6 |
 |:--------------------: |:--------------------: | :----: |
-| <video src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/91be247e-b1e4-4206-aa95-4eca938597b2.mp4" type="video/mp4"> </video> | <video 
-src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/18c7fc59-00f9-4118-b88b-545d3ea87342.mp4" type="video/mp4"> </video>  | <video
-src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/f0bc6062-1a81-44f7-b6bc-747df6c06568.mp4" type="video/mp4"> </video>
+| <video src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/91be247e-b1e4-4206-aa95-4eca938597b2.mp4" type="video/mp4"> </video> | <video  src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/18c7fc59-00f9-4118-b88b-545d3ea87342.mp4" type="video/mp4"> </video>  | <video  src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/f0bc6062-1a81-44f7-b6bc-747df6c06568.mp4" type="video/mp4"> </video>
 
 - 🔥 Several new mode, eg, `still mode`, `reference mode`, `resize mode` are online for better and custom applications.
 
