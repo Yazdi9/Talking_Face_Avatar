@@ -20,6 +20,31 @@ Here Some Recources :[Leonardo.ai Youtube Video](https://www.youtube.com/watch?v
                      
 or you can use APIs [Leonardo.Ai API Guide](https://docs.leonardo.ai/docs) 
 
+<table class="center">
+<tr>
+  <td style="text-align:center;"><b>Leonardo.ai Image Generation</b></td>
+  <td style="text-align:center;"><b>Leonardo.ai Image Generation</b></td>
+   <td style="text-align:center;"><b>Leonardo.ai Image Generation</b></td>
+</tr>
+  
+<tr>
+<td>
+<img src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/12ffc93b-79f5-4cf0-a14d-f58cc050cc16" width="300px";height:"400px">
+
+</td>
+<td>
+ <img src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/ef923464-1033-45ba-a067-2a21afbae8fa" width="300px";height:"400px">
+
+</td>
+<td>
+ 
+<img src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/b3f5baa3-93be-4e5b-b492-acebbdb4c9e9" width="300px";height:"400px">
+
+</td>
+
+</tr>
+</table>
+
 
 ## ElevenLabs 
 
@@ -34,15 +59,17 @@ or you can use APIs [ElevenLabs API Guide](https://api.elevenlabs.io/docs)
 
 <table class="center">
 <tr>
-  <td style="text-align:center;"><b>Eleven Labs Example</b></td>
-  <td style="text-align:center;"><b>Eleven Labs Example</b></td>
-   <td style="text-align:center;"><b>Eleven Labs Example</b></td>
+  <td style="text-align:center;"><b>Eleven Labs TTS</b></td>
+  <td style="text-align:center;"><b>Eleven Labs TTS</b></td>
+   <td style="text-align:center;"><b>Eleven Labs TTS</b></td>
 </tr>
   
 <tr>
 <td>
 
-https://github.com/saba99/Talking_Face_Avatar/assets/33378412/8c2bd56b-5b43-4507-9d7e-68dc74c5a56a
+
+https://github.com/saba99/Talking_Face_Avatar/assets/33378412/bd68137d-2e67-41df-a1df-4162db170ff8
+
 
 </td>
 <td>
