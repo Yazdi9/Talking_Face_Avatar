@@ -18,14 +18,9 @@
 - 🔥 `full image mode` is online! checkout [here](https://github.com/Winfredy/SadTalker#full-bodyimage-generation) for more details.
 
 
-| video 1 +enhancer                | video 2      |  video 3 |
+| video 1 + enhancer(GFPGAN )                | video 2      |  video 3 |
 |:--------------------: |:--------------------: | :----: |
-| <video  src="" type="video/mp4"> </video> | <video  src="" type="video/mp4"> </video>  | <video  src="" type="video/mp4"> </video>
-
-
-| video 1 +enhancer                | video 2      |  video 3 |
-|:--------------------: |:--------------------: | :----: |
-| <video  src="" type="video/mp4"> </video> | <video  src="" type="video/mp4"> </video>  | <video  src="" type="video/mp4"> </video>
+| <video src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/7879fcc4-fe3c-473a-86d8-23c736dd4a65.mp4" type="video/mp4"> </video> | <video  src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/a7eb4df8-1789-412d-97da-8f6b361a72a2.mp4" type="video/mp4"> </video>  | <video  src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/b20102bd-852a-4091-87da-18dba720bc93.mp4" type="video/mp4"> </video>
 
 
 - 🔥 Several new mode, eg, `still mode`, `reference mode`, `resize mode` are online for better and custom applications.
