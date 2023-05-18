@@ -34,6 +34,9 @@ or you can use APIs [ElevenLabs API Guide](https://api.elevenlabs.io/docs)
 ## 🔥 Highlight
 
 
+-🔥 Scroll To left and Right To See All Videos
+
+
 | video 1 + enhancer(GFPGAN )                | video 2      |  video 3 |
 |:--------------------: |:--------------------: | :----: |
 | <video src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/7879fcc4-fe3c-473a-86d8-23c736dd4a65.mp4" type="video/mp4"> </video> | <video  src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/a7eb4df8-1789-412d-97da-8f6b361a72a2.mp4" type="video/mp4"> </video>  | <video  src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/b20102bd-852a-4091-87da-18dba720bc93.mp4" type="video/mp4"> </video>
