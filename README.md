@@ -2,20 +2,36 @@
 
 
 
-<a href='https://arxiv.org/abs/2211.12194'><img src='https://img.shields.io/badge/ArXiv-PDF-red'></a> &nbsp; <a href='https://sadtalker.github.io'><img src='https://img.shields.io/badge/Project-Page-Green'></a> &nbsp; [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Winfredy/SadTalker/blob/main/quick_demo.ipynb) &nbsp; [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/vinthony/SadTalker) &nbsp; [![sd webui-colab](https://img.shields.io/badge/Automatic1111-Colab-green)](https://colab.research.google.com/github/camenduru/stable-diffusion-webui-colab/blob/main/video/stable/stable_diffusion_1_5_video_webui_colab.ipynb) &nbsp; 
+ [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Winfredy/SadTalker/blob/main/quick_demo.ipynb) &nbsp; 
 
 
-<b>TL;DR: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; single portrait image 🙎‍♂️  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; audio 🎤  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; talking head video 🎞.</b>
+<b>Talking Face Avatar:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; single portrait image From Leonardo.ai API 🙎‍♂️ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; audio From ElevenLabs TTS API 🎤 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; talking head video 🎞.</b>
 
 <br>
 
 </div>
 
+## Leonardo.ai 
+
+Go To [Leonardo.Ai](https://app.leonardo.ai/ai-generations) And Enter your Prompt And Negative Prompts To Generate Artistic Images
+
+Here Some Recources :[Leonardo.ai Youtube Video](https://www.youtube.com/watch?v=36rSjS5hV4Y)
+                     [Leonardo.ai Youtube Video Toutorial](https://www.youtube.com/watch?v=XW7CyTPd0aI&list=PL3qnMcmlvPBHvhxHL2wVHSzN870Y-wWVa)
+                     
+or you can use APIs [Leonardo.Ai API Guide](https://docs.leonardo.ai/docs) 
+
+
+## ElevenLabs 
+
+Go To [Eleven Labs](https://beta.elevenlabs.io/) And Enter your Text And Generate Beautiful Audios With Diffrent Pitchs and Speeckers. ElvenLabs also is Multilingual 
+
+Here Some Recources :[ElevenLabs Youtube Video](https://www.youtube.com/watch?v=CYGwfHWiSyU)
+
+or you can use APIs [ElevenLabs API Guide](https://api.elevenlabs.io/docs) 
+
+[ElevenLabs Python Repo](https://github.com/lugia19/elevenlabslib)
 
 ## 🔥 Highlight
-
-
-- 🔥 `full image mode` is online! checkout [here](https://github.com/Winfredy/SadTalker#full-bodyimage-generation) for more details.
 
 
 | video 1 + enhancer(GFPGAN )                | video 2      |  video 3 |
