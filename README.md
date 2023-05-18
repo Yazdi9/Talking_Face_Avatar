@@ -37,8 +37,8 @@ or you can use APIs [Leonardo.Ai API Guide](https://docs.leonardo.ai/docs)
 
 </td>
 <td>
- 
-<img src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/b3f5baa3-93be-4e5b-b492-acebbdb4c9e9" width="300px";height:"400px">
+ <img src="https://github.com/saba99/Talking_Face_Avatar/assets/33378412/cfb315c5-35f8-4a76-945d-eca0393825b0" width="300px";height:"400px">
+
 
 </td>
 
@@ -115,7 +115,7 @@ https://github.com/saba99/Talking_Face_Avatar/assets/33378412/1f78eb67-cc76-4c9a
 
 2. Creating the env and install the requirements.
   ```bash
-  git clone https://github.com/Winfredy/SadTalker.git
+  git clone https://github.com/saba99/Talking_Face_Avatar.git
 
   cd SadTalker 
 
