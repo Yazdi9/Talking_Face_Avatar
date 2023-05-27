@@ -108,7 +108,7 @@ https://github.com/saba99/Talking_Face_Avatar/assets/33378412/1f78eb67-cc76-4c9a
 
 - 🔥 Several new mode, eg, `still mode`, `reference mode`, `resize mode` are online for better and custom applications.
 
-## Our Approach Diagram
+## Our Diagram Approach
 
 
 ![you_doodle_pro_2023-05-19t16_25_09z](https://github.com/saba99/Talking_Face_Avatar/assets/33378412/a516b0fb-7ab5-4fd3-b78c-79808e8eec6e)
