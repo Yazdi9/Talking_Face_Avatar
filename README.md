@@ -114,6 +114,7 @@ https://github.com/saba99/Talking_Face_Avatar/assets/33378412/1f78eb67-cc76-4c9a
 ![you_doodle_pro_2023-05-19t16_25_09z](https://github.com/saba99/Talking_Face_Avatar/assets/33378412/a516b0fb-7ab5-4fd3-b78c-79808e8eec6e)
 
 
+
 ### Linux:
 
 1. Installing [anaconda](https://www.anaconda.com/), python and git.
@@ -138,14 +139,11 @@ https://github.com/saba99/Talking_Face_Avatar/assets/33378412/1f78eb67-cc76-4c9a
   ### pip install TTS
 
   ```  
-### Windows ([windows](https://www.bilibili.com/video/BV1Dc411W7V6/)):
+### UI + API:
+  look at index.html 
+  
 
-1. Install [Python 3.10.6](https://www.python.org/downloads/windows/), checking "Add Python to PATH".
-2. Install [git](https://git-scm.com/download/win) manually (OR `scoop install git` via [scoop](https://scoop.sh/)).
-3. Install `ffmpeg`, following [this instruction](https://www.wikihow.com/Install-FFmpeg-on-Windows) (OR using `scoop install ffmpeg` via [scoop](https://scoop.sh/)).
-4. Download our SadTalker repository, for example by running `git clone https://github.com/Winfredy/SadTalker.git`.
-5. Download the `checkpoint` and `gfpgan` [below↓](https://github.com/Winfredy/SadTalker#-2-download-trained-models).
-5. Run `start.bat` from Windows Explorer as normal, non-administrator, user, a gradio WebUI demo will be started.
+![Screenshot (4898)](https://github.com/saba99/Talking_Face_Avatar/assets/33378412/6f27442b-b08e-4d3d-ac1b-83d460bca698)
 
 
 ## 📥 2. Download Trained Models.
