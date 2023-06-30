@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="api.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>Image Gererator using LeonardoAI API</title>
+</head>
+
+<body class="max-w-4xl mx-auto">
+  <div class="flex flex-col justify-center px-4 pt-12 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h1 class="text-4xl font-bold mb-10 " >Image Generator</h1>
+      <p class="text-md lg:text-xl mb-10">
+        This is a simple image generator using
+        <a href="https://docs.leonardo.ai/reference/" class="font-semibold">LeonardoAI API.</a>
+        You can generate images by entering a short description of the image or by entering a prompt.
+      </p>
+    </div>
+    <div class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+      <div class="mb-4 flex flex-col gap-2">
+        <label for="api" class="text-gray-600 apiDiv">LeonardoAI API Key</label>
+        <input type="text" id="api" class="input-style apiDiv" placeholder="Enter your LeonardoAI API key here" />
+        <label for="api_text" class="text-gray-600">negative prompt</label>
+        <input type="text" id="api_text" class="input-style apiDiv" placeholder="Enter your Inverse Description for better result here" />
+        
+        <label for="text" class="text-gray-600">prompt</label>
+        <textarea id="text" class="input-style"
+          placeholder="Enter a short description of the image or a keyword"></textarea>
+          <label for="text" class="text-gray-600">LeonardoAI Models</label> 
+          <select class="input-style" name="model" id="model">
+            <option value="">Choose LeonardoAI Model</option>
+            <option value="Creative">Creative</option>
+            <option value="Signature">Signature</option>
+            <option value="Select">Select</option>
+          </select>  
+        <label for="sizeSelect" class="text-gray-600">Image Size</label>
+        <select id="sizeSelect" class="input-style"></select>
+        <label for="numImagesSelect" class="text-gray-600">Number of Images</label>
+        <select id="numImagesSelect" class="input-style"></select>
+      </div>
+      <div class="mt-2 text-right">
+        <button id="btn" class="button-style">Generate</button>
+      </div>
+      <div id="loading" class="hidden flex justify-center items-center mt-10">
+        <svg class="animate-spin h-10 w-10 text-gray-500" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647zm11-2.647A7.962 7.962 0 0120 12h-4c0 3.042-1.135 5.824-3 7.938l-3-2.647z">
+          </path>
+        </svg>
+
+      </div>
+      <div id="image" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-10"></div>
+    </div>
+  </div>
+  <footer class="text-center mt-10 border-t-2 border-gray-200 py-4" id="checkAuthor">
+    <p class="text-sm">
+      Made with ❤️ by
+      <a href="https://github.com/saba99" class="font-semibold">@saba99</a>
+    </p>
+  </footer>
+</body>
+
+<script>
+ 
+  const url_post = "https://cloud.leonardo.ai/api/rest/v1/generations";
+   
+  let array =[]
+  var e = document.getElementById("model");
+  var value = e.value;
+  var leo_text = e.options[e.selectedIndex].text;
+  const Creative='6bef9f1b-29cb-40c7-b9df-32b51c1f67d3'
+  const Signature='291be633-cb24-434f-898f-e662799936ad'
+  const Select='cd2b2a15-9760-4174-a5ff-4d2925057376'
+  let model_Id = leo_text === 'Creative' ? Creative : leo_text === 'Signature' ? Signature : Select;
+  
+  const listen = (event)=> {
+    
+     model_Id = event.target.value === 'Creative' ? Creative : event.target.value === 'Signature' ? Signature : Select;
+     
+  }
+  e.addEventListener("change",listen,false)
+  const text = document.getElementById("text");
+  const negative_text = document.getElementById("api_text");
+  const image = document.getElementById("image");
+  const btn = document.getElementById("btn");
+  const sizeSelect = document.getElementById("sizeSelect");
+  const numImagesSelect = document.getElementById("numImagesSelect");
+  const loadingSpinner = document.getElementById("loading");
+  const apiDiv = document.getElementsByClassName("apiDiv");
+  const apiInput = document.getElementById("api");
+
+  const sizeOptions = ["512","768","832","960","1024", "1280", "1088", "1152", "1216", "1280"];
+  const optionsFragment = document.createDocumentFragment();
+
+  sizeOptions.forEach((size) => {
+    const option = document.createElement("option");
+    option.value = size;
+    option.textContent = size;
+    optionsFragment.appendChild(option);
+  });
+
+  sizeSelect.appendChild(optionsFragment);
+
+  for (let i = 1; i <= 10; i++) {
+    const option = document.createElement("option");
+    option.value = i;
+    option.textContent = i;
+    numImagesSelect.appendChild(option);
+  }
+
+  let imageSizes = sizeSelect.value;
+  let numImages = parseInt(numImagesSelect.value);
+  let apiKey = "";
+
+  ////////////////////
+  async function generateImage() {
+  try {
+    if (apiKey === "") {
+      apiKey = apiInput.value.trim() || api;
+      if (apiKey === "") {
+        alert("Please enter your LeonardoAI API key");
+        return;
+      }
+      apiDiv[0].classList.add("hidden");
+      apiDiv[1].classList.add("hidden");
+    }
+    if (text.value === "") {
+      alert("Please enter a value");
+      return;
+    }
+    loadingSpinner.classList.remove("hidden");
+    btn.disabled = true;
+    const data = {
+      prompt: text.value,
+      num_images: numImages,
+      width:512,
+      height:1024,
+      modelId: model_Id,
+      negative_prompt: negative_text.value,
+      sd_version: 'v1_5',
+      guidance_scale: 7,
+      presetStyle: 'LEONARDO',
+      promptMagic: true
+    };
+    const response = await fetch(url_post, {
+      method: "POST",
+      headers: {
+        accept: 'application/json',
+        "Content-Type": "application/json",
+        authorization: "Bearer " + apiKey,
+      },
+      body: JSON.stringify(data),
+    })
+    const jsonData = await response.json();
+    console.log(jsonData);
+    const generation_id = jsonData['sdGenerationJob']['generationId']
+    const url_get = "https://cloud.leonardo.ai/api/rest/v1/generations/" + generation_id
+  
+    let imageData ; 
+    do {
+      const getImageResponse = await fetch(url_get, {
+        method: 'GET',
+        headers: {
+          accept: 'application/json', authorization: "Bearer " + apiKey,
+        },
+      });
+      imageData = await getImageResponse.json();
+      if (imageData["generations_by_pk"]["generated_images"].length===0) {
+        // Wait for 3 seconds before checking again
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        // imageData = await getImageResponse.json();
+      }
+    } while (imageData["generations_by_pk"]["generated_images"].length===0);
+    
+    console.log(imageData)
+    let dataUrls = imageData["generations_by_pk"]["generated_images"]
+    dataUrls.forEach((item) => {
+      const img = document.createElement("img");
+      let url=item["url"]
+      console.log(url)
+      img.src = url;
+      img.alt = "image";
+      img.classList.add(
+        "w-full",
+        "h-auto",
+        "rounded-lg",
+        "shadow-lg",
+        "hover:shadow-2xl",
+        "transition",
+        "duration-500",
+        "ease-in-out",
+        "transform",
+        "hover:-translate-y-1",
+        "hover:scale-103"
+      );
+      image.appendChild(img);
+      img.addEventListener("dblclick", () => {
+        downloadImage(url);
+      });
+    });
+    loadingSpinner.classList.add("hidden");
+    btn.disabled = false;
+  } catch (err) {
+    console.log(err);
+    loadingSpinner.classList.add("hidden");
+    btn.disabled = false;
+    alert("Something went wrong. Please try again.");
+  }
+}
+  
+  const checkAuthor = document.getElementById("checkAuthor");
+  if (checkAuthor.children[0].children[0].textContent !== "@saba99") {
+    window.location.href = "https://github.com/saba99";
+  }
+
+  text.addEventListener("input", function () {
+    if (text.value === "") {
+      btn.classList.remove("bg-slate-900", "text-slate-50");
+      text.classList.add("border-r-2", "border-gray-200");
+    } else {
+      text.classList.remove("border-r-2", "border-gray-200");
+      btn.classList.add("bg-slate-900", "text-slate-50");
+    }
+  });
+
+  sizeSelect.addEventListener("change", function () {
+    imageSizes = sizeSelect.value;
+  });
+
+  numImagesSelect.addEventListener("change", function () {
+    numImages = parseInt(numImagesSelect.value);
+  });
+
+  btn.addEventListener("click", generateImage);
+
+  function downloadImage(url) {
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = document.getElementById("text").value.split(" ").join("_") + ".png";
+    link.target = "_blank";
+    link.click();
+  }
+</script>

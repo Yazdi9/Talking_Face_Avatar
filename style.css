@@ -1,0 +1,29 @@
+.input-style {
+    border: 2px solid #DB7093;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    color: #666;
+    background-color: #fff;
+    width: 100%;
+    outline: none;
+}
+
+.button-style {
+    background-color: #eee;
+    color: #FF69B4;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    outline: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.button-style:hover {
+    background-color: #FF69B4;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.button-style:focus {
+    outline: none;
+}
