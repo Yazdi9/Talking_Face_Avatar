@@ -141,14 +141,16 @@ https://github.com/saba99/Talking_Face_Avatar/assets/33378412/1f78eb67-cc76-4c9a
   ```  
 ### UI + API:
   look at index.html 
-  
 
-![Screenshot (4898)](https://github.com/saba99/Talking_Face_Avatar/assets/33378412/6f27442b-b08e-4d3d-ac1b-83d460bca698)
+![Screenshot (4899)](https://github.com/saba99/Talking_Face_Avatar/assets/33378412/f922a6e8-38da-4b2a-b339-7a689dc33bc9) 
 
 
 ## 📥 2. Download Trained Models.
 
 You can run the following script to put all the models in the right place.
+
+
+
 
 ```bash
 bash scripts/download_models.sh
