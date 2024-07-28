@@ -218,4 +218,4 @@ python inference.py --driven_audio <audio.wav> \
 ```
 
 
-
+[![Star History Chart](https://api.star-history.com/svg?repos=Saba99/Talking_Face_Avatar&type=Date)](https://star-history.com/#Saba99/Talking_Face_Avatar&Date)
