@@ -6,7 +6,7 @@
  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Winfredy/SadTalker/blob/main/quick_demo.ipynb) &nbsp; 
 
 
-<b>Talking Face Avatar:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; single portrait image From Leonardo.ai API 🙎‍♂️ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; audio From ElevenLabs TTS API 🎤 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; talking head video 🎞.</b>
+<b>Talking Face Avatar:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; single portrait image From Leonardo.ai API 🙎‍♂️ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; audio From ElevenLabs / 60db TTS API 🎤 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; talking head video 🎞.</b>
 
 <br>
 
@@ -92,6 +92,96 @@ https://github.com/saba99/Talking_Face_Avatar/assets/33378412/1f78eb67-cc76-4c9a
 
 
 
+
+## 60db TTS
+
+[60db](https://60db.ai/) is an alternative multilingual TTS provider (English plus Hindi, Bengali, Gujarati, Kannada, Malayalam, Marathi, Punjabi, Tamil and Telugu). It can be used in place of ElevenLabs to generate the driving audio for the talking head.
+
+API guide: [60db TTS docs](https://docs.60db.ai/api-reference/tts/text-to-speech) &nbsp;|&nbsp; [Streaming](https://docs.60db.ai/api-reference/tts/text-to-speech-stream) &nbsp;|&nbsp; [Voices](https://docs.60db.ai/api-reference/voices/get-my-voices)
+
+Key differences from ElevenLabs (all handled for you by the unified library below):
+
+| | ElevenLabs | 60db |
+| :--- | :--- | :--- |
+| Auth header | `xi-api-key` | `Authorization: Bearer` |
+| TTS endpoint | `POST /v1/text-to-speech/{voice_id}` | `POST /tts-synthesize` |
+| Stream endpoint | `POST /v1/text-to-speech/{voice_id}/stream` | `POST /tts-stream` |
+| List voices | `GET /v1/voices` | `GET /myvoices` |
+| Response | raw MP3 bytes | JSON `audio_base64` (TTS) / NDJSON base64 chunks (stream) |
+| `stability` / `similarity` | `0.0`–`1.0` | `0`–`100` |
+| Voice id | alphanumeric (`ErXwobaYiN019PkySvjV`) | UUID (`fbb75ed2-...`) |
+
+Both providers implement the same three methods in the library —
+`synthesize()`, `synthesize_stream()` and `get_voices()` — so they stay fully
+interchangeable.
+
+## Unified TTS Library
+
+`src/utils/tts_providers.py` exposes ElevenLabs and 60db behind one identical interface, so you can switch providers without changing your code. Every call returns the path to an audio file on disk, ready to feed into SadTalker (which converts MP3 → WAV internally).
+
+**1. Configure API keys** (never hard-coded — read from the environment):
+
+```bash
+cp .env.example .env
+# then edit .env and set:
+#   ELEVENLABS_API_KEY=...
+#   SIXTYDB_API_KEY=sk_live_...
+```
+
+`.env` is auto-loaded if [`python-dotenv`](https://pypi.org/project/python-dotenv/) is installed (`pip install python-dotenv`); otherwise export the variables in your shell.
+
+**2. Use it from Python:**
+
+```python
+from src.utils.tts_providers import get_provider, synthesize
+
+# 60db
+path = get_provider("60db").synthesize(
+    "Hello world", output_path="output.mp3", voice_id="fbb75ed2-..."
+)
+
+# ElevenLabs — identical call signature
+path = get_provider("elevenlabs").synthesize(
+    "Hello world", output_path="output.mp3", voice_id="EXAVITQu4vr4xnSDxMaL"
+)
+
+# one-liner convenience wrapper
+synthesize("Hello world", provider="60db")
+```
+
+`stability` and `similarity` are always passed on a `0.0`–`1.0` scale; the 60db provider rescales them to its `0`–`100` range automatically.
+
+**3. Streaming** — `synthesize_stream()` writes audio incrementally as it arrives and returns the same file path, so it drops into the pipeline exactly like `synthesize()`:
+
+```python
+path = get_provider("60db").synthesize_stream("Hello world", output_path="output.mp3")
+path = get_provider("elevenlabs").synthesize_stream("Hello world", output_path="output.mp3")
+```
+
+**4. List available voices** — `get_voices()` returns a list of voice dicts (each has at least `voice_id` and `name`):
+
+```python
+for v in get_provider("60db").get_voices():
+    print(v["voice_id"], v["name"])
+```
+
+**5. Or from the command line:**
+
+```bash
+# synthesize
+python -m src.utils.tts_providers "Hello world" --provider 60db --voice <voice_id> --out output.mp3
+python -m src.utils.tts_providers "Hello world" --provider elevenlabs --out output.mp3
+
+# streaming
+python -m src.utils.tts_providers "Hello world" --provider 60db --stream --out output.mp3
+
+# list voices (no text needed)
+python -m src.utils.tts_providers --provider 60db --list-voices
+```
+
+The resulting audio file can then be uploaded as the **Input audio** in the Gradio demo, or passed to `inference.py --driven_audio output.mp3`.
+
+> ⚠️ **Security:** older scripts in `api/` contain hard-coded API keys. Treat those as compromised and rotate them; the unified library reads keys only from environment variables.
 
 ## 🔥 Highlight
 

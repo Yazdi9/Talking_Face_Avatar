@@ -1,0 +1,10 @@
+# Secrets -- never commit real API keys
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Generated audio/output
+output.mp3
+output.wav
